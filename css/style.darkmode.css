@@ -16,6 +16,7 @@
     --notice-bgcolor: #F1F1F1;
     --tag-bordercolor: #ffffff;
 }*/
+/*
 :root {
     --main-bgcolor: #17181A;
     --font-color: #CDD0D4;
@@ -34,7 +35,25 @@
     --notice-bgcolor: #17181A;
     --tag-bordercolor: #737373;
 }
-
+*/
+:root {
+    --main-bgcolor: #fdfcf8;
+/*#fdfcf8*//*79ea5d*/
+    --font-color: #000000;
+    --navbar-bgcolor: #333;
+    --navbar-font-color: #ffffff;
+    --act-color: #0D6EFD;
+    --navbar-hover: #ddd;
+    --footer-bgcolor: #ddd;
+    --code-bordercolor: #e6e6e6;
+    --code-bgcolor: #fafafa;
+    --notice-bordercolor: #f1f1f1;
+    --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.20), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
+    --date: #737373;
+    --article-bordercolor: #ffffff;
+    --notice-bgcolor: #F1F1F1;
+    --tag-bordercolor: #ffffff;
+}
 
 /*Waline Css变量*/
 :root {
