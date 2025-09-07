@@ -16,11 +16,11 @@
 
         // if it's dark -> go light
         if (themeStylesheet.href.includes('dark')) {
-            themeStylesheet.href = 'css/article.css';
+            themeStylesheet.href = 'css/style.css';
             // themeToggle.innerText = 'Switch to dark mode';
         } else {
             // if it's light -> go dark
-            themeStylesheet.href = 'css/article.darkmode.css';
+            themeStylesheet.href = 'css/style.darkmode.css';
             //  themeToggle.innerText = 'Switch to light mode';
         }
         // save the preference to localStorage
