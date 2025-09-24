@@ -7,21 +7,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const storedTheme = localStorage.getItem('theme');
     if(storedTheme != null){
     if (storedTheme.includes('dark')) {
-        themeStylesheet.href = '../css/article.darkmode.css';
+        themeStylesheet.href = '../css/main.darkmode.css';
 
     } else {
-        themeStylesheet.href = '../css/article.css';
+        themeStylesheet.href = '../css/main.css';
     }}
     const themeToggle = document.getElementById('theme-toggle');
     themeToggle.addEventListener('click', () => {
 
         // if it's dark -> go light
         if (themeStylesheet.href.includes('dark')) {
-            themeStylesheet.href = '../css/article.css';
+            themeStylesheet.href = '../css/main.css';
           //  themeToggle.innerText = 'Switch to dark mode';
         } else {
             // if it's light -> go dark
-            themeStylesheet.href = '../css/article.darkmode.css';
+            themeStylesheet.href = '../css/main.darkmode.css';
              //themeToggle.innerText = 'Switch to light mode';
         }
         // save the preference to localStorage

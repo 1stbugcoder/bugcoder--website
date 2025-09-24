@@ -1,23 +1,24 @@
-
 :root {
-    --main-bgcolor: #FFFFFF;
+    --main-bgcolor: #fdfcf8;
+/*#fdfcf8*//*79ea5d*/
     --font-color: #000000;
     --navbar-bgcolor: #333;
     --navbar-font-color: #ffffff;
     --act-color: #0D6EFD;
     --navbar-hover: #ddd;
-    --footer-bgcolor:#ddd;
+    --footer-bgcolor: #ddd;
     --code-bordercolor: #e6e6e6;
     --code-bgcolor: #fafafa;
     --notice-bordercolor: #f1f1f1;
-    --box-shadow: 0 4px 8px 0 rgba(0,0,0,0.20),0 6px 20px 0 rgba(0,0,0,0.20);
+    --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.20), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
     --date: #737373;
-    --article-bordercolor:#ffffff;
-    --notice-bgcolor: #F1F1F1;
+    --article-bordercolor: #ffffff;
+    --notice-bgcolor: #f1f1f1;
     --tag-bordercolor: #ffffff;
 }
+
 /*Waline Css变量*/
-    :root {
+:root {
     --waline-font-size: 1rem;
     --waline-white: #fff;
     --waline-light-grey: #999;
@@ -44,71 +45,97 @@
     --waline-avatar-radius: 50%;
     --waline-box-shadow: none
 }
+
 * {
     box-sizing: border-box;
 }
+
 /* 设置 body 的样式*/
-    body {
+body {
     font-family: Arial;
     margin: 0 auto;
     width: 100%;
-    background-color:var(--main-bgcolor);
-    cursor:url(../img/pointer.gif),default;
+    background-color: var(--main-bgcolor);
+    cursor: url(../img/pointer.gif), default;
 }
+
 /* 页眉/LOGO*/
-    .header {
+.header {
     background-color: var(--main-bgcolor);
     color: var(--font-color);
     padding: 15px;
-    margin:0 auto;
-    width:90%;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1250px;
 }
+
+.header img {
+    border-radius: 40%;
+}
+
 /* 设置顶部导航栏的样式*/
-    .navbar {
+.navbar {
     display: flex;
     background-color: var(--navbar-bgcolor);
-    width: 90%;
+    width: 100%;
+    max-width: 1250px;
     list-style-type: none;
     margin: 0 auto;
     padding: 0;
     overflow: auto;
 }
+
+/* WARNING!!!
+
+WE DONOT KNOW HOW IT WORKS IN PAGE
+
+*/
 ul li {
-    float: left;
+    float: right;
 }
+
 ul.navbar {
     position: sticky;
     top: 0;
     z-index: 501;
 }
+
 /* 设置导航栏链接的样式*/
-    ul a {
+ul a {
     color: var(--navbar-font-color);
     padding: 16px 10px;
     text-decoration: none;
     text-align: center;
     display: block;
 }
+
 .act {
     background-color: var(--act-color);
     color: var(--navbar-font-color);
 }
+
 /* 当鼠标悬停时改变颜色*/
-    ul a:hover, .dropdown:hover {
+ul a:hover{
     background-color: var(--navbar-hover);
     color: black;
 }
+
 /* 列容器*/
-    .row {
+.row {
+    /*
+        THIS VLANE MAKES ‘main’ and ‘side’ upsidedown
+ */
     display: flex;
-    width: 75%;
+    width: 100%;
     flex-wrap: wrap;
-    max-width: 1000px;
+    max-width: 980px;
     margin: 0 auto;
 }
+
 /* 创建两个并排的等列*/
-    /* Sidebar/left column*/
-    .side {
+/* Sidebar/ */
+
+.side {
     /* background-color: #f1f1f1;*/
     padding: 15px;
     height: 100%;
@@ -116,7 +143,10 @@ ul.navbar {
     color: var(--font-color);
     width: 30%;
     float: left;
+    max-width: 300px;
+   /* order: 0; */  /*left column*/
 }
+
 .notice {
     border-style: solid;
     border-radius: 5px;
@@ -124,6 +154,30 @@ ul.navbar {
     background-color: var(--notice-bgcolor);
     padding: 20px;
 }
+/*
+.author,.tag {
+    padding: 20px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    border-width: 1px;
+    border-radius: 5px;
+    background-color: var(--main-bgcolor);
+    box-shadow: var(--box-shadow);
+    display: flex;
+
+}
+
+.ava {
+  position: relative;
+  min-height: auto;
+}
+
+.author img{
+
+justify-content: center;
+}
+*/
+
 .tag {
     padding: 20px;
     border-style: solid;
@@ -132,32 +186,88 @@ ul.navbar {
     border-radius: 5px;
     background-color: var(--main-bgcolor);
     box-shadow: var(--box-shadow);
+    display: flex;
+
 }
+
+.author{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    padding: 20px 24px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    border-width: 1px;
+    border-radius: 5px;
+    background-color: var(--main-bgcolor);
+    box-shadow: var(--box-shadow);
+
+}
+
+.author img{
+ z-index:-1;border-radius: 100%;margin:auto 0; display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*
+.author-img{
+
+overflow: hidden;
+    margin: 0 auto;
+    width: 110px;
+    height: 110px;
+    border-radius: 70px;
+
+}
+
+.author-img img{
+    margin: auto 0;
+    transition: filter 375ms ease-in 0.2s, transform 0.3s;
+}
+*/
 /* 主列*/
-    .main {
+.main {
     background-color: var(--main-bgcolor);
     color: var(--font-color);
     padding: 20px;
     height: 100%;
     width: 70%;
-    float: left;
+    float: right;
+    max-width: 850px;
+   /* order: 1;   */ 
 }
+
 /* 页脚*/
-    .footer {
+.footer {
     padding: 10px;
     text-align: center;
     background: var(--footer-bgcolor);
     color: var(--font-color);
-    width: 90%;
+    width: 100%;
+    max-width: 1250px;
     font-size: 85%;
     line-height: 100%;
-    margin:0 auto;
+    margin: 0 auto;
 }
+
 .footer a {
     text-decoration: none;
 }
+
 .zhx {
-    text-decoration:line-through
+    text-decoration: line-through
+}
+
+.code {
+    border-style: solid;
+    border-color: var(--code-bordercolor);
+    border-width: 2px;
+    padding: 5px;
+    background-color: var(--code-bgcolor);
+    font-family: 'Courier New', monospace;
+    color: var(--font-color);
+    overflow: auto
 }
 /*
 .code {
@@ -170,7 +280,19 @@ ul.navbar {
     font-family: 'Courier New', monospace;
     overflow: auto;
 }*/
-    .article {
+
+/*
+code {
+    background-color:#f8f8f8;
+    border-color:#dfdfdf;
+    border-style:solid;
+    border-width:1px;
+    color:#333;
+    font-family:Consolas,"Liberation Mono",Courier,monospace;
+    font-weight:normal;
+    padding:0.125rem 0.3125rem 0.0625rem;
+}*/
+.article {
     border-style: solid;
     border-color: var(--article-bordercolor);
     border-width: 1px;
@@ -178,9 +300,10 @@ ul.navbar {
     padding: 8px;
     border-radius: 5px;
     background-color: var(--main-bgcolor);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.10), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
     margin-bottom: .5rem;
 }
+
 .article:hover {
     border-style: solid;
     border-color: var(--article-bordercolor);
@@ -189,25 +312,30 @@ ul.navbar {
     padding: 8px;
     border-radius: 5px;
     background-color: var(--main-bgcolor);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.35), 0 6px 25px 0 rgba(0, 0, 0, 0.35);
     margin-bottom: .5rem;
 }
+
 #gitalk-container {
     max-width: 600px;
     margin: 0 auto;
 }
+
 a {
     color: var(--font-color);
     text-decoration: underline;
-    cursor:url(../img/link.png),default;
+    cursor: url(../img/link.png), default;
 }
+
 h2 a {
     color: var(--font-color);
     text-decoration: none;
 }
+
 a:hover {
     text-decoration: none;
 }
+
 #BtnTop {
     display: none;
     position: fixed;
@@ -222,9 +350,11 @@ a:hover {
     padding: 10px;
     border-radius: 10px;
 }
+
 #BtnTop:hover {
     background-color: #555;
 }
+
 #theme-toggle {
     display: inline;
     width: 50px;
@@ -240,91 +370,62 @@ a:hover {
     cursor: pointer;
     padding: 1px;
     border-radius: 50%;
-    filter:invert(100%);
+    filter: invert(100%);
 }
-/* 预览图*/
-    /* .preview-img {
-    display: none;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 100;
-    background: rgba(0, 0, 0, 0.7);
-}*/
-    /* 容器*/
-    /* .preview-img .container {
-    max-width: 100%;
-    position: absolute;
-    padding: 1px;
-    background-color: #fafafa;
-}*/
-    /* 大图显示*/
-    /* .preview-img .container img {
-    max-width: 100%;
-    background-size: contain/cover;
-}*/
-    /* 关闭按钮*/
-    /* .preview-img .container a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    text-decoration: none;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    font-family: Arial;
-    color: #fafafa;
-    background: rgba(0, 0, 0, 0.4);
-}*/
-    .date {
+
+.date {
     color: var(--date);
     font-size: 85%;
     margin-top: .5rem;
     margin-bottom: .5rem;
 }
-/*
-code {
-    background-color:#f8f8f8;
-    border-color:#dfdfdf;
-    border-style:solid;
-    border-width:1px;
-    color:#333;
-    font-family:Consolas,"Liberation Mono",Courier,monospace;
-    font-weight:normal;
-    padding:0.125rem 0.3125rem 0.0625rem;
-}*/
-    button a {
+
+button a {
     text-decoration: none;
 }
+
 button {
     background-color: var(--main-bgcolor);
 }
+
 p {
     font-family: "Times New Roman", Times, serif;
 }
+
 .article p {
     font-family: "Times New Roman", Times, serif;
     font-size: 0.95em;
     margin-top: .6rem;
 }
+
 h2 {
     line-height: 1.2;
     /* margin-top: .5rem;
     margin-bottom: .5rem;*/
-    line-height: 1.2;
 }
+
+/*标签云*/
+.tag-cloud {
+  display: inline-block;
+  color: white;
+  padding: 8px 20px;
+  font-family: Arial;
+  border-radius: 25px;
+  background-color: #3b3b3b;
+  margin-top: 8px;
+}
+
 /*分页*/
-    ul.pagination {
+ul.pagination {
     display: inline-block;
     padding: 0;
     margin: 20px auto;
 }
+
 ul.pagination li {
     display: inline;
 }
+
 ul.pagination li a {
     color: var(--font-color);
     float: left;
@@ -337,6 +438,7 @@ ul.pagination li a {
     background-color: var(--main-bgcolor);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
 }
+
 ul.pagination li a.act {
     background-color: #0080FF;
     color: #FFFFFF;
@@ -344,21 +446,95 @@ ul.pagination li a.act {
     border: 1px solid #0080FF;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
 }
+
 ul.pagination li a:hover:not(.active) {
     background-color: #0080FF;
     color: #FFFFFF;
     border: 1px solid #0080FF;
 }
+
 div.center {
     text-align: center;
 }
+
+/* 响应式布局 - 当屏幕宽度小于 700 像素时*/
+@media screen and (max-width: 768px) {
+
+    .side {
+    /* background-color: #f1f1f1;*/
+    padding: 15px;
+    height: 100%;
+    background-color: var(--main-bgcolor);
+    color: var(--font-color);
+    width: 100%;
+    max-width: 768px;
+    float: left;
+    order: 1;
+    }
+    .main {
+    background-color: var(--main-bgcolor);
+    color: var(--font-color);
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    max-width: 768px;
+    float: right;
+    order: 0;    
+    }
+    body {
+        font-family: Arial;
+        margin: 0;
+        width: 100%;
+    }
+
+    .row {   
+        width: 100%;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+    }
+
+    /* 页眉/LOGO*/
+    .header {
+        background-color: var(--main-bgcolor);
+        color: var(--font-color);
+        padding: 15px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    /* 设置顶部导航栏的样式*/
+    .navbar {
+        display: flex;
+        background-color: var(--navbar-bgcolor);
+        width: 100%;
+        list-style-type: none;
+        margin: 0 auto;
+        padding: 0;
+        overflow: auto;
+    }
+
+    .footer {
+        padding: 10px;
+        text-align: center;
+        background: var(--footer-bgcolor);
+        width: 100%;
+        font-size: 85%;
+        line-height: 100%;
+        margin: 0 auto;
+    }
+}
+
 /*暗模式*/
-    /* .darkmode-layer, .darkmode-toggle {
+/* .darkmode-layer, .darkmode-toggle {
     z-index: 500;
 }*/
-    .darkmode--activated .header img {
+/*
+.darkmode--activated .header img {
     display: none;
 }
+*/
 /*
 .darkmode--activated p {
     color: #585858;
@@ -367,56 +543,48 @@ div.center {
 .darkmode--activated body {
     background-color:#e8e8e8;
 }*/
-    /*图片正常*/
-    /* .darkmode--activated img,
+/*图片正常*/
+/* .darkmode--activated img,
 .darkmode--activated .pagination {
     mix-blend-mode: difference;
 }*/
-    /* 响应式布局 - 当屏幕宽度小于 700 像素时，使两列堆叠，而不是并排*/
-    @media screen and (max-width: 700px) {
-    /* .row {
-    flex-direction: column;
-}*/
-    .main, .side {
-    width: 100%;
-}
-body {
-    font-family: Arial;
-    margin: 0;
-    width: 100%;
-}
-.row {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-/* 页眉/LOGO*/
-    .header {
-    background-color: var(--main-bgcolor);
-    color: var(--font-color);
-    padding: 15px;
-    margin:0 auto;
-    width:100%;
-}
-/* 设置顶部导航栏的样式*/
-    .navbar {
-    display: flex;
-    background-color: var(--navbar-bgcolor);
-    width: 100%;
-    list-style-type: none;
-    margin: 0 auto;
-    padding: 0;
-    overflow: auto;
-}
-.footer {
-    padding: 10px;
+
+
+/* 预览图*/
+/* .preview-img {
+    display: none;
     text-align: center;
-    background: var(--footer-bgcolor);
     width: 100%;
-    font-size: 85%;
-    line-height: 100%;
-    margin:0 auto;
-}
-}
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.7);
+}*/
+/* 容器*/
+/* .preview-img .container {
+    max-width: 100%;
+    position: absolute;
+    padding: 1px;
+    background-color: #fafafa;
+}*/
+/* 大图显示*/
+/* .preview-img .container img {
+    max-width: 100%;
+    background-size: contain/cover;
+}*/
+/* 关闭按钮*/
+/* .preview-img .container a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    font-family: Arial;
+    color: #fafafa;
+    background: rgba(0, 0, 0, 0.4);
+}*/
+
